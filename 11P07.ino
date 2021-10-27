@@ -71,13 +71,13 @@ if  (millis() < last_sampling_time + INTERVAL) return;
 
 // adjust servo position according to the USS read value
 
-    if(dist_raw < 180){
+    if(dist_raw < 180.0){
         analogWrite(PIN_LED, 255);
         myservo.write(0);
         i = 10;
     }
 
-    else if(dist_raw > 180 && dist_raw < 360){
+    else if(dist_raw > 180.0 && dist_raw < 360.0){
         analogWrite(PIN_LED, 0);
         if(int(dist_raw/10) > last_raw){
             myservo.write(i);
@@ -95,7 +95,7 @@ if  (millis() < last_sampling_time + INTERVAL) return;
 
     }
 
-    else if(dist_raw > 360){
+    else if(dist_raw > 360.0){
         analogWrite(PIN_LED, 255);
         myservo.write(180);
         i = 180;
